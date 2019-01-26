@@ -23,15 +23,17 @@ public class UserPrompt : MonoBehaviour
     {
         if (!_hasUserAnswered && Input.GetKeyDown("a"))
         {
-            _hasUserAnswered = true;
-            answer = 'a';
+            ChooseAnswer('a');
+            return;
         }
 
         if (!_hasUserAnswered && Input.GetKeyDown("b"))
         {
-            _hasUserAnswered = true;
-            answer = 'b';
+            ChooseAnswer('b');
+            return;
         }
+
+        // TODO have answer be automically chosen after some time
     }
 
     //  GivePrompt(prompt text, timeToAnswer, defaultOption, optionA, optionB) ->
@@ -46,7 +48,6 @@ public class UserPrompt : MonoBehaviour
 
     public bool IsPromptAnswered()
     {
-        // TODO add in time, so it gets answered automatically after a set amount of time
         return _hasUserAnswered;
     }
 
@@ -59,5 +60,11 @@ public class UserPrompt : MonoBehaviour
         {
             throw new System.Exception("You should not call GetAnswer before an answer has been decided.");
         }
+    }
+
+    private void ChooseAnswer(char chosen_answer)
+    {
+        _hasUserAnswered = true;
+        answer = chosen_answer;
     }
 }
