@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 4244443957
+    locked: 0
+  - name: Foreground
+    uniqueID: 789193017
+    locked: 0
+  - name: Dialogue Bubbles
+    uniqueID: 3944068547
+    locked: 0
