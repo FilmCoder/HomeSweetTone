@@ -1,0 +1,91 @@
+One single script for Enter() and Leave() functions, same script could
+be applied to each character as long as each character parent has unique animations
+
+The sprites below will all share the same walking animation.
+
+Dialogue system
+===============
+
+Think for a single character:
+
+He will come in at certain times. He might decide to come back based on how 
+you treated him earlier, or he might come back at predefined times regardless.
+
+He might say something to you, and based on how you respond, he may decide to leave.
+
+1. Assume that only 1 character is ever talking to you at the same time.
+
+He would initiate a short "conversation", which would contain
+1. what he says
+2. my choices for responding
+3. how he would react to those choices
+   * (leave, stay, leave later, come back at some point later)
+   * but how do we program those choices?
+   * leave later (a simple coroutine that sleeps until a certain time then leaves)
+   * come back (could toggle a variable that is used to decide whether to come
+     back near the end)
+
+SIMPLE DIALOGUE SOLUTION:
+----------------
+Set of couroutines in a separate script for each character, where each 
+coroutine represents a single short conversation (character says something,
+then maybe another thing, then the player has a prompt to respond somehow)
+
+For now, use console.logs to output what the characters say, and what
+the prompt is for the main player. make a basic conversation:
+ 1. a character comes in at a certain time
+ 2. He says something (via Debug.Log)
+ 3. Main player has two choices to respond (sees his choices via Debug.Log). He
+    can pick a choice by pressing either A or B on his keyboard. After a certain
+    amount of time, default to choosing a specific choice.
+ 4. One of those choices prompts the character to say something, then he leaves.
+ 5. But another one of those choices makes the character happy, and he stays.
+
+ DIALOGUE DRAW SOLUTION:
+ -----------------------
+ CharacterDialogueBubble class, which can be instantiated with pointers to a dialogue box 
+ object and a text object. So then the script itself will just directly set the text
+ via Say(text).  MakeVisible() and Hide() will hide and show the canvas
+ that specifies where on the map text shows from the Bubble.
+
+ Functions:
+ Say(text)
+ MakeVisible()
+ Hide()
+
+ Each Dialogue script per character will utilize their own CharacterDialogueBubble 
+ object, to manage what they say.
+
+ USER PROMPT SOLUTION:
+ ---------------------
+ A simple UserPrompt class, singleton pattern (we just attach it to a singleton that
+ all the character objects can reference, or findByName whatever's easiest)
+
+ functions:
+ Say(text) -> Just says something with no prompt
+
+ 
+ GivePrompt(prompt text, defaultOption, optionA, optionB) ->
+    returns a letter 'a' or 'b' depending on how the user chooses, for
+    this game we'll start by just using the keyboard to press a or b,
+    we'll figure out a way to detect the press inside the giveprompt function
+    (maybe from within Update and we set a variable and causes givePrompt to close)
+
+    GivePrompt is a synchrounous function, it won't return until time limit
+    is up or user chooses.  Time limit 7 seconds for now.
+
+The dialogue script for each character will utilize the UserPrompt class inline with
+the CharacterDialogueBubble class, because the conversation would be inline.
+ 
+
+Rank/Order of Tasks
+-------------------
+* Reusable script for entering and leaving for different characters
+  * Same script for each character, however the animations "inside" and "outside" will
+    be different.
+* Simple Dialogue System (Use console.log for now, replace with actual draw calls
+  later.)
+* MusicScript (possibly, still need to plan this, would likely just pair a track to each
+  character, if character out of frame then mute that track, if in then unmute).
+* CharacterDialogueBubble
+* UserPrompt
