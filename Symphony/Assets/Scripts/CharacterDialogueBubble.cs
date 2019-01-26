@@ -3,37 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// attach this script to a character manager.
+// then, hook it up the proper dialogue box / text,
+// and THEN the Show, Hide, and Say functions can be 
+// called from another script
 public class CharacterDialogueBubble : MonoBehaviour
 {
     // actual name that will be used for this dialogue bubble
-    public Text specifiedName;
+    public string specifiedName;
 
     // UI.Text
     public Text nameText;
     public Text dialogueText;
 
     // entire speech bubble / dialogueBox object, for toggling visible and invisible
-    public 
+    public GameObject speechBubble;
 
-    // Start is called before the first frame update
-    void Start()
+    // say some text
+    public void Say(string sentence)
     {
+        Show();
+        StartCoroutine(TypeSentence(sentence));
     }
 
-    // Update is called once per frame
-    void Update()
+    // shows the speech bubble
+    public void Show()
     {
-        
+        //speechBubble.gameObject.GetComponent<Renderer>().enabled = true;
+        speechBubble.SetActive(true);
     }
 
-    // say 
-    public void Say(string text)
+    // hides the speech bubble
+    public void Hide()
     {
-        // TODO animate text, so characters appear one after another
-        dialogueText.text = text;
+        speechBubble.SetActive(false);
+        //speechBubble.gameObject.GetComponent<Renderer>().enabled = false;
     }
 
-    // show
-
-    // hide
+    private IEnumerator TypeSentence(string sentence)
+    {
+        // types out the letters one by one
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
+    }
 }

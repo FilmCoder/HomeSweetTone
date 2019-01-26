@@ -87,5 +87,6 @@ Rank/Order of Tasks
   later.)
 * MusicScript (possibly, still need to plan this, would likely just pair a track to each
   character, if character out of frame then mute that track, if in then unmute).
-* CharacterDialogueBubble
+* BASICS DONE. CharacterDialogueBubble
+* WORKING ON NOW: 
 * UserPrompt
