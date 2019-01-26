@@ -65,7 +65,7 @@ the prompt is for the main player. make a basic conversation:
  Say(text) -> Just says something with no prompt
 
  
- GivePrompt(prompt text, defaultOption, optionA, optionB) ->
+ GivePrompt(prompt text, timeToAnswer, defaultOption, optionA, optionB) ->
     returns a letter 'a' or 'b' depending on how the user chooses, for
     this game we'll start by just using the keyboard to press a or b,
     we'll figure out a way to detect the press inside the giveprompt function
@@ -73,6 +73,10 @@ the prompt is for the main player. make a basic conversation:
 
     GivePrompt is a synchrounous function, it won't return until time limit
     is up or user chooses.  Time limit 7 seconds for now.
+
+    For now, when an option is chosen, do nothing, just hide away the prompt.
+    TODO stretch goal: Hide prompt, then type out black speech bubble. Or just
+    have the text type back out in the prompt box.
 
 The dialogue script for each character will utilize the UserPrompt class inline with
 the CharacterDialogueBubble class, because the conversation would be inline.

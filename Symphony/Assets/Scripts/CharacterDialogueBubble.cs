@@ -19,6 +19,11 @@ public class CharacterDialogueBubble : MonoBehaviour
     // entire speech bubble / dialogueBox object, for toggling visible and invisible
     public GameObject speechBubble;
 
+    private void Start()
+    {
+        nameText.text = specifiedName;
+    }
+
     // say some text
     public void Say(string sentence)
     {
