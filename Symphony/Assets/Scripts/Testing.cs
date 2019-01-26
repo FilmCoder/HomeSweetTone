@@ -31,8 +31,16 @@ public class Testing : MonoBehaviour
 
         char answer = userPrompt.GetAnswer();
 
-        dialogueBubble.Say("I'm so cute, look at me purr. I'm going to make you so very dirty!");
-        yield return  new WaitForSeconds(5);
+        Debug.Log("You chose: " + answer);
+
+        if(answer == 'a')
+        {
+            dialogueBubble.Say("I'm so cute, look at me purr.");
+        } else
+        {
+            dialogueBubble.Say("You're making a terrible mistake. If only you understood what you just did... Meow.");
+        }
+        yield return new WaitForSeconds(5);
         dialogueBubble.Hide();
     }
 
