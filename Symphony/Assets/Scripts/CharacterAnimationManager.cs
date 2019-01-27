@@ -50,12 +50,31 @@ public class CharacterAnimationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Leave(CHARACTER.GIRL);
+        StartCoroutine(DoStuff());
     }
+
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerator DoStuff()
+    {
+        yield return new WaitForSeconds(3);
+        Leave(CHARACTER.LADY);
+        yield return new WaitForSeconds(6);
+        Enter(CHARACTER.LADY);
+
+        yield return new WaitForSeconds(3);
+        Leave(CHARACTER.CAT);
+        yield return new WaitForSeconds(10);
+        Enter(CHARACTER.CAT);
+
+        yield return new WaitForSeconds(3);
+        Leave(CHARACTER.GIRL);
+        yield return new WaitForSeconds(3);
+        Enter(CHARACTER.GIRL);
     }
 }
