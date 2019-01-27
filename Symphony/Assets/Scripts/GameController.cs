@@ -73,8 +73,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        CloseCurtain();
-
         // We fetch all Text components now so that we don't have to keep fetching them later.
         foreach (CHARACTER character in Enum.GetValues(typeof(CHARACTER))) {
             dialogueTexts[(int)character] = dialoguePanels[(int)character].GetComponent<Text>();
