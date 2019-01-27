@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public GameObject selectorPanel2;
     public GameObject animatorObject;
     public Animator curtain;
+    public Animator thankYou;
 
     private Text[] dialogueTexts = new Text[5];
     private Text choiceText1;
@@ -276,6 +277,16 @@ public class GameController : MonoBehaviour
     public void CloseCurtain()
     {
         curtain.SetBool("IsCurtainFalling", true);
+    }
+
+    public void ShowThankYou()
+    {
+        thankYou.SetBool("FadeIn", true);
+    }
+
+    public void ShowPressAnyButton()
+    {
+        
     }
 
 }
