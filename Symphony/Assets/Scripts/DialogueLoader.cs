@@ -9,35 +9,7 @@ public class DialogueLoader
     public static List<List<ConversationLine>>[] conversationsBySection() {
 		var conversations = new List<List<ConversationLine>>[Enum.GetValues(typeof(SECTION)).Length];
 		conversations[(int)SECTION.A] = new List<List<ConversationLine>> {
-			new List<ConversationLine> {
-				new ConversationLine {
-					character = CHARACTER.CAT,
-					delay = 1f,
-					hideOnExpire = false,
-					text = "Pet me! Meow."
-				},
-				new ConversationLine {
-					character = CHARACTER.PLAYER,
-					delay = 3f,
-					duration = 6f,
-					isChoice = true,
-					text = "Okay. You're super cute!",
-					text2 = "No. You ugly.",
-					response1 = new ConversationLine {
-						character = CHARACTER.CAT,
-						delay = 3f,
-						duration = 3f,
-						text = "Meow. :3"
-					},
-					response2 = new ConversationLine {
-						character = CHARACTER.CAT,
-						delay = 3f,
-						duration = 3f,
-						text = "Meow... :("
-					},
-					affectedCharacter = CHARACTER.CAT
-				}
-			},
+
 			new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
@@ -91,66 +63,151 @@ public class DialogueLoader
 		conversations[(int)SECTION.C] = new List<List<ConversationLine>> {
 			new List<ConversationLine> {
 				new ConversationLine {
-					character = CHARACTER.CAT,
-					delay = 1f,
-					duration = 3f,
-					text = "I know you can hear me. Meow."
-				},
-				new ConversationLine {
-					character = CHARACTER.CAT,
-					delay = 5f,
-					duration = 3f,
-					hideOnExpire = false,
-					text = "Stop ignoring me! Meow."
-				},
-				new ConversationLine {
-					character = CHARACTER.CAT,
-					delay = 9f,
-					duration = 3f,
-					text = "...Meow?"
-				}
-			},
-			new List<ConversationLine> {
-				new ConversationLine {
 					character = CHARACTER.GIRL,
 					delay = 1f,
-					duration = 3f,
-					text = "Hey Man!"
+					duration = 5f,
+					text = "Hey there! Mind if I join you?"
 				},
 				new ConversationLine {
-					character = CHARACTER.MAN,
-					delay = 5f,
-					duration = 3f,
-					hideOnExpire = false,
-					text = "Sup girl ._."
+					character = CHARACTER.PLAYER,
+					delay = 3f,
+					duration = 8f,
+					isChoice = true,
+					text = "Sure thing! Thanks for stopping by.",
+					text2 = "Actually, I'm really busy right now...",
+					response1 = new ConversationLine {
+						character = CHARACTER.GIRL,
+						delay = 3f,
+						duration = 4f,
+						text = "Great! Still working on your game?"
+					},
+					response2 = new ConversationLine {
+						character = CHARACTER.GIRL,
+						delay = 3f,
+						duration = 4f,
+						text = "Oh, ok... Well, see you around!"
+					}
 				},
-				new ConversationLine {
-					character = CHARACTER.GIRL,
-					delay = 9f,
-					duration = 3f,
-					text = "...Meow?"
-				}
 			}
 		};
 		conversations[(int)SECTION.D] = new List<List<ConversationLine>> {
 			new List<ConversationLine> {
 				new ConversationLine {
-					character = CHARACTER.CAT,
+					character = CHARACTER.PLAYER,
 					delay = 1f,
 					duration = 4f,
-					text = "Pet me, Ada! You know you want to. Meow."
+					text = "Yeah... It's almost finished, but it needs a little more work."
 				},
 				new ConversationLine {
-					character = CHARACTER.LADY,
+					character = CHARACTER.GIRL,
 					delay = 5f,
-					duration = 4f,
-					text = "No thanks. You're stinky and ugly."
+					hideOnExpire = false,
+					text = "Cool! You know I'll be the first in line to play it!"
 				},
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 9f,
+					hideOnExpire = false,
+					text = "I'm working on a project too, but it's a secret! :)"
+				},
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 13.5f,
+					duration = 3f,
+					text = "Wait, someone's coming!"
+				}
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 2f,
+					duration = 4f,
+					text = "Alright. Time to get back to work..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 7f,
+					hideOnExpire = false,
+					text = "...type type type..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 10f,
+					keepPreviousText = true,
+					duration = 2.5f,
+					text = "\n...type type type..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 13f,
+					duration = 4f,
+					text = "What's this?"
+				}
+			}
+		};
+		conversations[(int)SECTION.E] = new List<List<ConversationLine>> {
+			new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.CAT,
-					delay = 9f,
+					delay = 1f,
+					hideOnExpire = false,
+					text = "Meow. (Pet me!)"
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 3f,
+					duration = 8f,
+					isChoice = true,
+					text = "Okay. You're adorable!",
+					text2 = "No, bad cat! I'm busy.",
+					response1 = new ConversationLine {
+						character = CHARACTER.CAT,
+						delay = 3f,
+						duration = 3f,
+						text = "Meow. :3"
+					},
+					response2 = new ConversationLine {
+						character = CHARACTER.CAT,
+						delay = 3f,
+						duration = 3f,
+						text = "Meow... :("
+					},
+					affectedCharacter = CHARACTER.CAT
+				},
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 5f,
 					duration = 4f,
-					text = "Meow... >.<"
+					text = "Aw, he's so cute! HEY KITTY :D"
+				}
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 1f,
+					hideOnExpire = false,
+					text = "Meow. (Pet me!)"
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 3f,
+					duration = 6f,
+					isChoice = true,
+					text = "Okay. You're super cute!",
+					text2 = "No. You ugly.",
+					response1 = new ConversationLine {
+						character = CHARACTER.CAT,
+						delay = 3f,
+						duration = 3f,
+						text = "Meow. :3"
+					},
+					response2 = new ConversationLine {
+						character = CHARACTER.CAT,
+						delay = 3f,
+						duration = 3f,
+						text = "Meow... :("
+					},
+					affectedCharacter = CHARACTER.CAT
 				}
 			}
 		};
