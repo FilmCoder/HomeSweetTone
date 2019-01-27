@@ -51,3 +51,6 @@ TagManager:
   - name: Dialogue Bubbles
     uniqueID: 3944068547
     locked: 0
+  - name: art_layer
+    uniqueID: 1871320513
+    locked: 0
