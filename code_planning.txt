@@ -81,6 +81,18 @@ the prompt is for the main player. make a basic conversation:
 The dialogue script for each character will utilize the UserPrompt class inline with
 the CharacterDialogueBubble class, because the conversation would be inline.
  
+Music Manager System
+--------------------
+You have an array of layers, where each layer is an instrument playing in the song.
+
+Each sound is muted at the beginning.  When a player enters, AFTER he sits down his music 
+begins playing.
+
+So we have a simple system to mute and unmute the different tracks by index.
+
+TODO/STRETCH goals: Make an instrument louder than the rest when he initially enters
+
+
 
 Rank/Order of Tasks
 -------------------
@@ -92,5 +104,5 @@ Rank/Order of Tasks
 * MusicScript (possibly, still need to plan this, would likely just pair a track to each
   character, if character out of frame then mute that track, if in then unmute).
 * BASICS DONE. CharacterDialogueBubble
-* WORKING ON NOW: 
-* UserPrompt
+* BASICS DONE. UserPrompt
+* BASICS DONE. Drawing system for dialogue bubbles

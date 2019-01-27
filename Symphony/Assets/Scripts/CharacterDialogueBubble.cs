@@ -16,16 +16,25 @@ public class CharacterDialogueBubble : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
 
-    // entire speech bubble / dialogueBox object, for toggling visible and invisible
+    // entire speech bubble / dialogueBox object (UI element on a canvas), for toggling visible and invisible
     public GameObject speechBubble;
 
     // gameobject that the speech bubble should follow around
-    private GameObject anchor;
+    public GameObject anchor;
+
+    private Camera cam;
 
     private void Start()
     {
         nameText.text = specifiedName;
-        anchor = gameObject;
+        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+    }
+
+    private void Update()
+    {
+        Debug.Log("Updating speech bubble location");
+        Vector2 newAnchorPoint = cam.WorldToScreenPoint(anchor.transform.position);
+        speechBubble.GetComponent<RectTransform>().anchoredPosition = newAnchorPoint;
     }
 
     // say some text

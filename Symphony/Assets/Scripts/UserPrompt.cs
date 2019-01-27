@@ -11,6 +11,9 @@ public class UserPrompt : MonoBehaviour
 
     private bool _hasUserAnswered = true;
     private char answer;
+    private float secondsSinceStartOfPrompt; // how long it's been since user was posed a question
+    private float secondsToAnswer; // how long user has to answer question before its chosen for him
+    private char defaultOption;
 
     // Start is called before the first frame update
     void Start()
@@ -21,28 +24,34 @@ public class UserPrompt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_hasUserAnswered && Input.GetKeyDown("a"))
+        if(!_hasUserAnswered)
         {
-            ChooseAnswer('a');
-            return;
-        }
+            secondsSinceStartOfPrompt += Time.deltaTime;
 
-        if (!_hasUserAnswered && Input.GetKeyDown("b"))
-        {
-            ChooseAnswer('b');
-            return;
+            if (Input.GetKeyDown("a"))
+            {
+                ChooseAnswer('a');
+            }
+            else if (Input.GetKeyDown("b"))
+            {
+                ChooseAnswer('b');
+            }
+            else if (secondsSinceStartOfPrompt >= secondsToAnswer)
+            {
+                ChooseAnswer(defaultOption);
+            }
         }
-
-        // TODO have answer be automically chosen after some time
     }
 
-    public void GivePrompt(string optionA, string optionB, float secondsToAnswer = 6f, char defaultOption = 'a')
+    public void GivePrompt(string optionA, string optionB, float _secondsToAnswer = 10f, char _defaultOption = 'a')
     {
         _hasUserAnswered = false;
         optionAText.text = optionA;
         optionBText.text = optionB;
+        secondsSinceStartOfPrompt = 0f;
+        secondsToAnswer = _secondsToAnswer;
+        defaultOption = _defaultOption;
         UserPromptObject.SetActive(true);
-        Debug.Log("GivePrompt() completed.");
     }
 
     public bool IsPromptAnswered()
@@ -65,5 +74,7 @@ public class UserPrompt : MonoBehaviour
     {
         _hasUserAnswered = true;
         answer = chosen_answer;
+        UserPromptObject.SetActive(false); // hide the prompt after answer has been chosen
+        Debug.Log("Answer chosen: " + chosen_answer);
     }
 }
