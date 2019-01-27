@@ -215,6 +215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BubblePlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5842564046126914520, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5842564046126914523, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_LocalPosition.x
