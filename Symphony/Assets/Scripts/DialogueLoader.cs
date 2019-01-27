@@ -573,13 +573,13 @@ public class DialogueLoader
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					delay = 21.5f,
-					duration = 10f,
+					hideOnExpire = false,
 					text = "Home."
 				}
 			};
 		} else if (score > -3) {
 			// Meh ending - You have 1 or 2 friends.
-			conversation = {
+			conversation = new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					delay = 1f,
@@ -622,13 +622,13 @@ public class DialogueLoader
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					delay = 21.5f,
-					duration = 10f,
+					hideOnExpire = false,
 					text = "Home."
 				}
-			}
+			};
 		} else {
 			// Bad ending - You have no friends. Womp womp.
-			conversation = {
+			conversation = new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					delay = 1f,
@@ -671,10 +671,10 @@ public class DialogueLoader
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					delay = 21.5f,
-					duration = 10f,
+					hideOnExpire = false,
 					text = "Home."
 				}
-			}
+			};
 		}
 		return conversation;
 	}

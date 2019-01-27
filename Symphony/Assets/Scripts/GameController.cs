@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
 	};
 
 	public enum SECTION {
-		A, B, C, D, E, F, G, H, I, J
+		A, B, C, D, E, F, G, H, I, J, K
 	}
 
     public enum CHARACTER {
@@ -107,8 +107,10 @@ public class GameController : MonoBehaviour
                     score += attitude;
                 }
                 launchConversation(DialogueLoader.getFinaleConversation(score));
-            } else if (currentDialogueSection > SECTION.I) {
-                // Do nothing for now.
+            } else if (currentDialogueSection == SECTION.J) {
+                CloseCurtain();
+            } else if (currentDialogueSection == SECTION.K) {
+                ShowThankYou();
             } else if (conversationSections.Length > (int)currentDialogueSection) {
                 launchFirstValidConversation(conversationSections[(int)currentDialogueSection]);
             }
