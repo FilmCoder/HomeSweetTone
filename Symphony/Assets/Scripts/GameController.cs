@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject selectorPanel1;
     public GameObject selectorPanel2;
     public GameObject animatorObject;
+    public Animator curtain;
 
     private Text[] dialogueTexts = new Text[5];
     private Text choiceText1;
@@ -72,6 +73,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        CloseCurtain();
+
         // We fetch all Text components now so that we don't have to keep fetching them later.
         foreach (CHARACTER character in Enum.GetValues(typeof(CHARACTER))) {
             dialogueTexts[(int)character] = dialoguePanels[(int)character].GetComponent<Text>();
@@ -272,5 +275,9 @@ public class GameController : MonoBehaviour
         return true;
     }
 
+    public void CloseCurtain()
+    {
+        curtain.SetBool("IsCurtainFalling", true);
+    }
 
 }

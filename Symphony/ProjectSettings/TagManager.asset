@@ -54,3 +54,9 @@ TagManager:
   - name: art_layer
     uniqueID: 1871320513
     locked: 0
+  - name: Curtain
+    uniqueID: 1887950319
+    locked: 0
+  - name: Thanks For Playing
+    uniqueID: 641897629
+    locked: 0
