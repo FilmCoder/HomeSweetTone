@@ -353,6 +353,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5842564046228526184, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 628677677ccb51e42b437876a3ea50ef,
+        type: 3}
     - target: {fileID: 5842564046112295390, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_Name
@@ -501,6 +507,7 @@ MonoBehaviour:
   nameText: {fileID: 2003333810}
   dialogueText: {fileID: 1622656723}
   speechBubble: {fileID: 1516388338}
+  anchor: {fileID: 0}
 --- !u!114 &258377915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,6 +898,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: Grace
       objectReference: {fileID: 0}
+    - target: {fileID: 5842564046228526184, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 628677677ccb51e42b437876a3ea50ef,
+        type: 3}
     - target: {fileID: 5842564046112295390, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_Name
@@ -1109,7 +1122,7 @@ PrefabInstance:
     - target: {fileID: 5842564046126914523, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -503.42004
+      value: 262.57996
       objectReference: {fileID: 0}
     - target: {fileID: 5842564046126914523, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
@@ -1129,7 +1142,7 @@ PrefabInstance:
     - target: {fileID: 5842564046126914523, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5842564046126914523, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
@@ -1139,7 +1152,7 @@ PrefabInstance:
     - target: {fileID: 5842564046126914523, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5842564046126914523, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
@@ -1171,6 +1184,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: Mr. IO
       objectReference: {fileID: 0}
+    - target: {fileID: 5842564046228526184, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 628677677ccb51e42b437876a3ea50ef,
+        type: 3}
     - target: {fileID: 5842564046112295390, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_Name
@@ -1207,6 +1226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UserPrompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842564046126914520, guid: d4481485c2a76914189d974c1a10f3c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1259132426262640167, guid: d4481485c2a76914189d974c1a10f3c7,
         type: 3}
@@ -1536,6 +1560,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: Burly Man
       objectReference: {fileID: 0}
+    - target: {fileID: 5842564046228526184, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 628677677ccb51e42b437876a3ea50ef,
+        type: 3}
     - target: {fileID: 5842564046112295390, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_Name
@@ -1832,6 +1862,7 @@ MonoBehaviour:
   nameText: {fileID: 2003333810}
   dialogueText: {fileID: 1622656723}
   speechBubble: {fileID: 1516388338}
+  anchor: {fileID: 0}
 --- !u!114 &1264726550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1873,7 +1904,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.042, y: -0.052, z: 10.734}
   m_LocalScale: {x: 0.31865618, y: 0.31865618, z: 0.31865618}
-  m_Children: []
+  m_Children:
+  - {fileID: 1906023761}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2141,6 +2173,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 642851243}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1516388339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516388338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243d94c5449b40945b9bb947707ddc3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specifiedName: 
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  speechBubble: {fileID: 0}
+  anchor: {fileID: 0}
 --- !u!1 &1526711981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,6 +2542,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: Ada
       objectReference: {fileID: 0}
+    - target: {fileID: 5842564046228526184, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 628677677ccb51e42b437876a3ea50ef,
+        type: 3}
     - target: {fileID: 5842564046112295390, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
       propertyPath: m_Name
@@ -2553,6 +2608,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1264726547}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1906023760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906023761}
+  m_Layer: 0
+  m_Name: cat bubble anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1906023761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906023760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.91, y: 1.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1290885745}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1938962257 stripped
 GameObject:
