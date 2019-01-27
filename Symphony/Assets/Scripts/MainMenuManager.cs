@@ -55,7 +55,7 @@ public class MainMenuManager : MonoBehaviour
                     SceneManager.LoadScene("About");
                     break;
                 case 2:
-                    SceneManager.LoadScene("Credits ");
+                    SceneManager.LoadScene("Credits");
                     break;
             }
         }

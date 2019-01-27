@@ -472,8 +472,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72.6, y: 119.4}
-  m_SizeDelta: {x: 727.7, y: 165.3}
+  m_AnchoredPosition: {x: -189, y: -24}
+  m_SizeDelta: {x: 546.5, y: 221.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2005326968
 MonoBehaviour:
@@ -497,10 +497,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 53bd2da7b9ef39c4d9448fad5700e900, type: 3}
-    m_FontSize: 30
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 79
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -508,7 +508,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Did you know '
+  m_Text: 'Listen.
+
+
+    Do you hear the laughter of your friends? Their breath? It''s like golden paint
+    on the air.'
 --- !u!222 &2005326969
 CanvasRenderer:
   m_ObjectHideFlags: 0
