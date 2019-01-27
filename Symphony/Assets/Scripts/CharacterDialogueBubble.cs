@@ -20,7 +20,7 @@ public class CharacterDialogueBubble : MonoBehaviour
     public GameObject speechBubble;
 
     // gameobject that the speech bubble should follow around
-    public GameObject anchor;
+    // public GameObject anchor;
 
     private Camera cam;
 
@@ -32,9 +32,9 @@ public class CharacterDialogueBubble : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Updating speech bubble location");
-        Vector2 newAnchorPoint = cam.WorldToScreenPoint(anchor.transform.position);
-        speechBubble.GetComponent<RectTransform>().anchoredPosition = newAnchorPoint;
+        // Debug.Log("Updating speech bubble location");
+        // Vector2 newAnchorPoint = cam.WorldToScreenPoint(anchor.transform.position);
+        // speechBubble.GetComponent<RectTransform>().anchoredPosition = newAnchorPoint;
     }
 
     // say some text
