@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 133595704}
   - component: {fileID: 133595705}
+  - component: {fileID: 133595706}
   m_Layer: 0
   m_Name: girl_sit
   m_TagString: Untagged
@@ -137,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133595703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.042, y: -0.052, z: 10.734}
+  m_LocalPosition: {x: -0.83, y: -0.25, z: 10.734}
   m_LocalScale: {x: 0.31865618, y: 0.31865618, z: 0.31865618}
   m_Children: []
   m_Father: {fileID: 0}
@@ -179,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: 03cdf5e15f4224c158e4d2e6c408cf1e, type: 3}
   m_Color: {r: 0.7028302, g: 1, b: 0.7168771, a: 1}
   m_FlipX: 0
@@ -191,6 +192,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &133595706
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133595703}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d90c074f38754ff45a07f69adfd19548, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &208406406 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1259132426262640167, guid: d4481485c2a76914189d974c1a10f3c7,
@@ -214,6 +234,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BubblePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842564046126914520, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5842564046126914523, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
         type: 3}
@@ -644,7 +669,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 28
+  m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 912cce266ab2f4650a9a7790cc2744b8, type: 3}
   m_Color: {r: 0.759434, g: 0.8590244, b: 1, a: 1}
   m_FlipX: 0
@@ -1469,6 +1494,53 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1032753313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1032753315}
+  - component: {fileID: 1032753314}
+  m_Layer: 0
+  m_Name: CharacterAnimationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1032753314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032753313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cea6c8c49185d24ea065dc946305341, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  girlAnimator: {fileID: 133595706}
+  catAnimator: {fileID: 1290885747}
+  ladyAnimator: {fileID: 1056078350}
+  manAnimator: {fileID: 0}
+--- !u!4 &1032753315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032753313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.74666, y: -0.61319137, z: 10.900391}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1056078347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056078348}
   - component: {fileID: 1056078349}
+  - component: {fileID: 1056078350}
   m_Layer: 0
   m_Name: lady_sit
   m_TagString: Untagged
@@ -1494,7 +1567,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056078347}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.042, y: -0.052, z: 10.734}
+  m_LocalPosition: {x: 0.5, y: 0.13, z: 10.734}
   m_LocalScale: {x: 0.31865618, y: 0.31865618, z: 0.31865618}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1536,7 +1609,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 18
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: b0c0ebe4bf829428eb9aaa4acd1d29b1, type: 3}
   m_Color: {r: 0.96367335, g: 1, b: 0.6839622, a: 1}
   m_FlipX: 0
@@ -1548,6 +1621,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1056078350
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056078347}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31199bdf403ab92479d91cbcc6d97081, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1264726545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1290885745}
   - component: {fileID: 1290885746}
+  - component: {fileID: 1290885747}
   m_Layer: 0
   m_Name: cat_sit
   m_TagString: Untagged
@@ -1747,7 +1840,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 24
+  m_SortingOrder: 25
   m_Sprite: {fileID: 21300000, guid: 33c3af68230504870956b440e1159b04, type: 3}
   m_Color: {r: 0.8845148, g: 0.7216981, b: 1, a: 1}
   m_FlipX: 0
@@ -1759,6 +1852,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1290885747
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290885744}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00f186a1ddb14a14a834eaa0a0dc6d96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1372414508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,6 +2176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1614613319}
   - component: {fileID: 1614613320}
+  - component: {fileID: 1614613321}
   m_Layer: 0
   m_Name: jock
   m_TagString: Untagged
@@ -2121,7 +2234,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 28
   m_Sprite: {fileID: 21300000, guid: 3c7877393edba4c8294b0584cadc6af5, type: 3}
   m_Color: {r: 0.8962264, g: 0.3931559, b: 0.3931559, a: 1}
   m_FlipX: 0
@@ -2133,6 +2246,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1614613321
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614613318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec97eaa73bbef9041bdbdecab72513e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1622656723 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5842564046112295384, guid: 8a8183098f0a0e8428e97d91bd8ed31f,
