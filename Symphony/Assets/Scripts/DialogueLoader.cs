@@ -417,13 +417,87 @@ public class DialogueLoader
 					character = CHARACTER.CAT,
 					delay = 6f,
 					duration = 3f,
-					text = "Meow?"
+					text = "Meow? ^o^"
 				},
 				new ConversationLine {
 					character = CHARACTER.LADY,
 					delay = 8f,
 					duration = 3f,
 					text = "Sweet cat."
+				},
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 1f,
+					duration = 4f,
+					text = "She seemed nice..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 5f,
+					duration = 4f,
+					text = "Eh, she's alright."
+				},
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 9f,
+					duration = 2f,
+					text = "Meow..."
+				}
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 1f,
+					duration = 4f,
+					text = "She seemed nice..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 5f,
+					duration = 4f,
+					text = "Eh, she's alright."
+				}
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.LADY,
+					delay = 1f,
+					duration = 4f,
+					text = "Are you a good kitty?"
+				},
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 5f,
+					duration = 3f,
+					text = "Meow! :P"
+				},
+				new ConversationLine {
+					character = CHARACTER.LADY,
+					delay = 8f,
+					duration = 4f,
+					text = "Yes, yes you are."
+				},
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 1f,
+					duration = 4f,
+					text = "It's just you and me, Mister."
+				},
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 5f,
+					duration = 3f,
+					text = "Meow. :("
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 8f,
+					duration = 4f,
+					text = "I'll pet you in a bit..."
 				},
 			},
 			new List<ConversationLine> {
@@ -454,7 +528,6 @@ public class DialogueLoader
 
 	public static List<ConversationLine> getFinaleConversation(int score) {
 		List<ConversationLine> conversation = new List<ConversationLine>();
-		score = 0; // For testing purposes.
 		if (score == 0) {
 			// Best ending - nobody is mad at you.
 			conversation = new List<ConversationLine> {
@@ -506,8 +579,102 @@ public class DialogueLoader
 			};
 		} else if (score > -3) {
 			// Meh ending - You have 1 or 2 friends.
+			conversation = {
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 1f,
+					hideOnExpire = false,
+					text = "Dear Mom,"
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 3f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "\nHonestly, I'm starting to like it here."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 8f,
+					hideOnExpire = false,
+					text = "I got to know a few people..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 12.5f,
+					hideOnExpire = false,
+					text = "And weirdly enough, this place is..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 16.5f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "\nalmost "
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 18.5f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "like... "
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 21.5f,
+					duration = 10f,
+					text = "Home."
+				}
+			}
 		} else {
 			// Bad ending - You have no friends. Womp womp.
+			conversation = {
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 1f,
+					hideOnExpire = false,
+					text = "Dear Mom,"
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 3f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "\nHonestly, I'm don't really like it here."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 8f,
+					hideOnExpire = false,
+					text = "I don't know anyone."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 12.5f,
+					hideOnExpire = false,
+					text = "And sure enough, I just want to..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 16.5f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "\nbe "
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 18.5f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "back... "
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 21.5f,
+					duration = 10f,
+					text = "Home."
+				}
+			}
 		}
 		return conversation;
 	}
