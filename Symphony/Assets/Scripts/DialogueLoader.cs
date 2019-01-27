@@ -48,13 +48,13 @@ public class DialogueLoader
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 6.5f,
+					delay = 7.5f,
 					hideOnExpire = false,
 					text = "Wish I didn't have to move so far away though."
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 11f,
+					delay = 12f,
 					duration = 4f,
 					text = "I really miss home. Maybe I can come visit sometime--"
 				}
@@ -151,15 +151,15 @@ public class DialogueLoader
 					character = CHARACTER.CAT,
 					delay = 1f,
 					hideOnExpire = false,
-					text = "Meow. (Pet me!)"
+					text = "Meow?"
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					delay = 3f,
 					duration = 8f,
 					isChoice = true,
-					text = "Okay. You're adorable!",
-					text2 = "No, bad cat! I'm busy.",
+					text = "Good kitty! You're adorable.",
+					text2 = "Shoo! Bad cat!",
 					response1 = new ConversationLine {
 						character = CHARACTER.CAT,
 						delay = 3f,
@@ -186,15 +186,15 @@ public class DialogueLoader
 					character = CHARACTER.CAT,
 					delay = 1f,
 					hideOnExpire = false,
-					text = "Meow. (Pet me!)"
+					text = "Meow?"
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					delay = 3f,
 					duration = 6f,
 					isChoice = true,
-					text = "Okay. You're super cute!",
-					text2 = "No. You ugly.",
+					text = "You can stay, but don't get in the way!",
+					text2 = "Go away, you hideous beast.",
 					response1 = new ConversationLine {
 						character = CHARACTER.CAT,
 						delay = 3f,
@@ -211,7 +211,305 @@ public class DialogueLoader
 				}
 			}
 		};
+		conversations[(int)SECTION.F] = new List<List<ConversationLine>> {
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 1f,
+					duration = 4f,
+					text = "He's so fluffy I'm gonna dieee"
+				},
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 6f,
+					hideOnExpire = false,
+					text = "Oh look, he has a name tag!"
+				},
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 10f,
+					duration = 4f,
+					text = "Mister IO... Cute name, right?"
+				},
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 3f,
+					duration = 2f,
+					text = "Meow."
+				},
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 5f,
+					duration = 4f,
+					text = "Meow meow meow."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 13f,
+					duration = 3f,
+					text = "...Hm?"
+				}
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 1f,
+					duration = 2f,
+					text = "Meow."
+				},
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 4f,
+					duration = 4f,
+					text = "Meow meow meow."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 7f,
+					duration = 4f,
+					text = "Shh! I'm working here, Mister."
+				},
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 11f,
+					duration = 4f,
+					text = "Meow... >_<"
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 15f,
+					duration = 3f,
+					text = "...Hm?"
+				}
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 1f,
+					duration = 4f,
+					text = "Aw, why did you chase him away?"
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 5f,
+					duration = 3f,
+					text = "I'm allergic."
+				},
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 8f,
+					hideOnExpire = false,
+					text = "Oh. "
+				},
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 10f,
+					duration = 5f,
+					keepPreviousText = true,
+					text = "Well I guess we don't need a cat around..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 15f,
+					duration = 3f,
+					text = "...Hm?"
+				}
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 1f,
+					hideOnExpire = false,
+					text = "Phew. Scared that ugly cat away."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 5f,
+					duration = 3.5f,
+					text = "Now, where was I..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 9f,
+					hideOnExpire = false,
+					text = "...beep boop beep..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 12f,
+					keepPreviousText = true,
+					duration = 2.5f,
+					text = "\n...[furious typing]..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 15f,
+					keepPreviousText = true,
+					duration = 3f,
+					text = "...Hm?"
+				},
+			}
+		};
+		conversations[(int)SECTION.G] = new List<List<ConversationLine>> {
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.LADY,
+					delay = 1f,
+					duration = 2.5f,
+					text = "Hey."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 3.5f,
+					duration = 2.5f,
+					text = "Hey sis."
+				},
+				new ConversationLine {
+					character = CHARACTER.LADY,
+					delay = 6f,
+					duration = 4.5f,
+					text = "Have you talked to Mom yet?"
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 10f,
+					duration = 2.5f,
+					text = "Not yet."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					isChoice = true,
+					delay = 10f,
+					duration = 8f,
+					text = "Do you want to hang out for a while?",
+					text2 = "Listen, can we do this later?",
+					response1 = new ConversationLine {
+						character = CHARACTER.LADY,
+						delay = 3f,
+						duration = 3f,
+						text = "Sure thing."
+					},
+					response2 = new ConversationLine {
+						character = CHARACTER.LADY,
+						delay = 3f,
+						duration = 4f,
+						text = "Ok. I'll head back then..."
+					},
+					affectedCharacter = CHARACTER.LADY
+				},
+			}
+		};
+		conversations[(int)SECTION.H] = new List<List<ConversationLine>> {
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.GIRL,
+					delay = 1f,
+					duration = 3f,
+					text = "Hi there! I'm Grace."
+				},
+				new ConversationLine {
+					character = CHARACTER.LADY,
+					delay = 4f,
+					duration = 3f,
+					text = "Ada. Nice to meet you."
+				},
+				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 6f,
+					duration = 3f,
+					text = "Meow?"
+				},
+				new ConversationLine {
+					character = CHARACTER.LADY,
+					delay = 8f,
+					duration = 3f,
+					text = "Sweet cat."
+				},
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 1f,
+					hideOnExpire = false,
+					text = "Phew... "
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 3.5f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "Hopefully that was the last of them."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 8f,
+					duration = 2.5f,
+					hideOnExpire = false,
+					text = "...type type type..."
+				}
+			}
+		};
 		return conversations;
+	}
+
+	public static List<ConversationLine> getFinaleConversation(int score) {
+		List<ConversationLine> conversation = new List<ConversationLine>();
+		score = 0; // For testing purposes.
+		if (score == 0) {
+			// Best ending - nobody is mad at you.
+			conversation = new List<ConversationLine> {
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 1f,
+					hideOnExpire = false,
+					text = "Dear Mom,"
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 3f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "\nHonestly, I'm starting to like it here."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 8f,
+					hideOnExpire = false,
+					text = "I've been making some friends..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 12.5f,
+					hideOnExpire = false,
+					text = "And oddly enough, this place is starting to..."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 16.5f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "\nfeel "
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 18.5f,
+					hideOnExpire = false,
+					keepPreviousText = true,
+					text = "like... "
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 21.5f,
+					duration = 10f,
+					text = "Home."
+				}
+			};
+		} else if (score > -3) {
+			// Meh ending - You have 1 or 2 friends.
+		} else {
+			// Bad ending - You have no friends. Womp womp.
+		}
+		return conversation;
 	}
 
 }

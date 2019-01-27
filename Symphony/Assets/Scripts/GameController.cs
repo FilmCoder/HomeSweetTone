@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 
     public AudioSource[] audioSources;
     private const float typingDelay = 0.02f;
-    private const float choiceDisplayDuration = 3f;
+    private const float CHOICE_DISPLAY_DURATION = 3.5f;
     private const float LEAVE_THRESHOLD = -1;
     private const float AUDIO_FADE_INTERVAL = 0.02f;
     private const float AUDIO_FADE_TIME = 1f;
@@ -45,17 +45,18 @@ public class GameController : MonoBehaviour
     private bool isUpSelected = true;
 
 	public static readonly float[] sectionDelays = new float[] {
-		0f,
-		16f,
-		35.5f,
-		51.4f,
-		67f,
-        83.3f,
-        99.4f,
-        115.3f,
-        133.3f,
-        155f,
-        175f
+		0f, //A
+		16f, // B
+		35.5f, // C
+		51.4f, // D
+		67f, // E
+        83.3f, // F
+        99.4f, // G
+        //115.3f, // H
+        121.3f, // H but delayed to make room for more convo in G
+        133.3f, // I
+        155f, // J
+        175f // K
 	};
 
 	public enum SECTION {
@@ -100,7 +101,17 @@ public class GameController : MonoBehaviour
         if (sectionDelays.Length > (int)nextSection && Time.time > sectionDelays[(int)nextSection]) {
             currentDialogueSection = nextSection;
             enterCharacter();
-            launchFirstValidConversation(conversationSections[(int)currentDialogueSection]);
+            if (currentDialogueSection == SECTION.I) {
+                int score = 0;
+                foreach (int attitude in attitudes) {
+                    score += attitude;
+                }
+                launchConversation(DialogueLoader.getFinaleConversation(score));
+            } else if (currentDialogueSection > SECTION.I) {
+                // Do nothing for now.
+            } else if (conversationSections.Length > (int)currentDialogueSection) {
+                launchFirstValidConversation(conversationSections[(int)currentDialogueSection]);
+            }
         }
 
         if (!isMakingChoice) {
@@ -179,6 +190,9 @@ public class GameController : MonoBehaviour
     /// Looks through a given section to start the first conversation whose participants are all present.
     ///</summary>
     private void launchFirstValidConversation(List<List<ConversationLine>> conversationList) {
+        if (conversationList == null) {
+            return;
+        }
         foreach (List<ConversationLine> conversation in conversationList) {
             if (launchConversation(conversation)) {
                 print($"Launched a conversation! (section {currentDialogueSection})");
@@ -230,7 +244,7 @@ public class GameController : MonoBehaviour
             if (attitudes[(int)line.affectedCharacter] <= LEAVE_THRESHOLD) {
                 dismissCharacter(line.affectedCharacter);
             }
-            yield return new WaitForSeconds(choiceDisplayDuration);
+            yield return new WaitForSeconds(CHOICE_DISPLAY_DURATION);
             playerBox.SetActive(false);
             yield break;
         }
