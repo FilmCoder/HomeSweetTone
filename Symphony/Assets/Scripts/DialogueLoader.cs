@@ -11,6 +11,35 @@ public class DialogueLoader
 		conversations[(int)SECTION.A] = new List<List<ConversationLine>> {
 			new List<ConversationLine> {
 				new ConversationLine {
+					character = CHARACTER.CAT,
+					delay = 1f,
+					hideOnExpire = false,
+					text = "Pet me! Meow."
+				},
+				new ConversationLine {
+					character = CHARACTER.PLAYER,
+					delay = 3f,
+					duration = 6f,
+					isChoice = true,
+					text = "Okay. You're super cute!",
+					text2 = "No. You ugly.",
+					response1 = new ConversationLine {
+						character = CHARACTER.CAT,
+						delay = 3f,
+						duration = 3f,
+						text = "Meow. :3"
+					},
+					response2 = new ConversationLine {
+						character = CHARACTER.CAT,
+						delay = 3f,
+						duration = 3f,
+						text = "Meow... :("
+					},
+					affectedCharacter = CHARACTER.CAT
+				}
+			},
+			new List<ConversationLine> {
+				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					delay = 1f,
 					hideOnExpire = false,
@@ -34,20 +63,20 @@ public class DialogueLoader
 			new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 0f,
+					delay = 1f,
 					hideOnExpire = false,
 					text = "RE:Answer my calls!"
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 2.5f,
+					delay = 3.5f,
 					hideOnExpire = false,
 					keepPreviousText = true,
-					text = "Hey Mom, I'm doing fine."
+					text = "\n-- Hey Mom, I'm doing fine."
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 6f,
+					delay = 6.5f,
 					hideOnExpire = false,
 					text = "Wish I didn't have to move so far away though."
 				},

@@ -11,19 +11,31 @@ public class GameController : MonoBehaviour
     public GameObject promptBox;
     public GameObject choicePanel1;
     public GameObject choicePanel2;
+    public GameObject selectorPanel1;
+    public GameObject selectorPanel2;
     private Text[] dialogueTexts = new Text[5];
     private Text choiceText1;
     private Text choiceText2;
 
     public AudioSource[] audioSources;
     private const float typingDelay = 0.02f;
+    private const float choiceDisplayDuration = 3f;
+    private const float LEAVE_THRESHOLD = -2;
+    private const float AUDIO_FADE_INTERVAL = 0.02f;
+    private const float AUDIO_FADE_TIME = 1f;
 
     ///<summary>
     /// Keeps track of which characters are on stage.
     ///</summary>
-    private bool[] presentCharacters = new bool[]{false, false, false, false, true};
+    private bool[] presentCharacters = new bool[]{false, true, false, false, true};
+
+    private int[] attitudes = new int[5];
 
     private SECTION currentDialogueSection = SECTION.A;
+    ///<summary>Keeps track of whether or not the player is currently making a choice.</summary>
+    private bool isMakingChoice = false;
+    ///<summary>Keeps track of the (binary) choice that a player makes in dialogues.</summary>
+    private bool isUpSelected = true;
 
 	public static readonly float[] sectionDelays = new float[] {
 		0f,
@@ -70,12 +82,44 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        SECTION nextSection = currentDialogueSection;
-        nextSection++;
-        if (Time.time > sectionDelays[(int)nextSection]) {
+        SECTION nextSection = currentDialogueSection + 1;
+        if (sectionDelays.Length > (int)nextSection && Time.time > sectionDelays[(int)nextSection]) {
             currentDialogueSection = nextSection;
             launchFirstValidConversation(conversationSections[(int)currentDialogueSection]);
         }
+
+        if (!isMakingChoice) {
+            // If the player is not making a choice right now, there's no need to bother with input handling.
+            return;
+        }
+        if (isUpSelected && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))) {
+            isUpSelected = false;
+            selectorPanel1.SetActive(false);
+            selectorPanel2.SetActive(true);
+        } else if (!isUpSelected && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))) {
+            isUpSelected = true;
+            selectorPanel1.SetActive(true);
+            selectorPanel2.SetActive(false);
+        }
+    }
+
+    private void dismissCharacter(CHARACTER character) {
+        if (!presentCharacters[(int)character]) {
+            // This character isn't even here! Do nothing
+            return;
+        }
+        presentCharacters[(int)character] = false;
+        StartCoroutine(fadeAudioOut(character));
+        // TODO Play animation.
+    }
+
+    private IEnumerator fadeAudioOut(CHARACTER character) {
+        for (float time = 0f; time < AUDIO_FADE_TIME; time += Time.deltaTime) {
+            audioSources[(int)character].volume = (AUDIO_FADE_TIME - time) / AUDIO_FADE_TIME;
+            yield return new WaitForSeconds(AUDIO_FADE_INTERVAL);
+
+        }
+        audioSources[(int)character].volume = 0f;
     }
 
     ///<summary>
@@ -109,6 +153,33 @@ public class GameController : MonoBehaviour
     ///</summary>
     private IEnumerator launchLine(ConversationLine line) {
         yield return new WaitForSeconds(line.delay);
+
+        if (line.isChoice) {
+            GameObject playerBox = dialogueBoxes[(int)CHARACTER.PLAYER];
+            // Hide the player's box until they make a choice.
+            playerBox.SetActive(false);
+            promptBox.SetActive(true);
+            isUpSelected = true;
+            isMakingChoice = true;
+            selectorPanel1.SetActive(true);
+            selectorPanel2.SetActive(false);
+            StartCoroutine(typeSentence(choiceText1, line.text, line.keepPreviousText));
+            StartCoroutine(typeSentence(choiceText2, line.text2, line.keepPreviousText));
+            yield return new WaitForSeconds(line.duration);
+            isMakingChoice = false;
+            playerBox.SetActive(true);
+            promptBox.SetActive(false);
+            StartCoroutine(launchLine(isUpSelected ? line.response1 : line.response2));
+            StartCoroutine(typeSentence(dialogueTexts[(int)line.character], isUpSelected ? line.text : line.text2));
+            attitudes[(int)line.affectedCharacter] += isUpSelected ? 0 : -1;
+            if (attitudes[(int)line.affectedCharacter] <= LEAVE_THRESHOLD) {
+                dismissCharacter(line.affectedCharacter);
+            }
+            yield return new WaitForSeconds(choiceDisplayDuration);
+            playerBox.SetActive(false);
+            yield break;
+        }
+
         GameObject panel = dialogueBoxes[(int)line.character];
         panel.SetActive(true);
 
