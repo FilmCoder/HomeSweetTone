@@ -11,8 +11,8 @@ public class Testing : MonoBehaviour
     void Start()
     {
         dialogueBubble = GetComponent<CharacterDialogueBubble>();
-        StartCoroutine("SayThings1");
         userPrompt = GameObject.FindWithTag("UserPrompt").GetComponent<UserPrompt>();
+        StartCoroutine("SayThings1");
     }
 
     IEnumerator SayThings1()
@@ -38,9 +38,13 @@ public class Testing : MonoBehaviour
             dialogueBubble.Say("I'm so cute, look at me purr.");
         } else
         {
-            dialogueBubble.Say("You're making a terrible mistake. If only you understood what you just did... Meow.");
+            dialogueBubble.Say("You're making a terrible mistake. If only you understood what you just did...");
         }
         yield return new WaitForSeconds(5);
+        dialogueBubble.Say("");
+        yield return new WaitForSeconds(1);
+        dialogueBubble.Say("Meow...");
+        yield return new WaitForSeconds(2);
         dialogueBubble.Hide();
     }
 

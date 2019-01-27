@@ -15,7 +15,7 @@ public class UserPrompt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UserPromptObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,14 +36,13 @@ public class UserPrompt : MonoBehaviour
         // TODO have answer be automically chosen after some time
     }
 
-    //  GivePrompt(prompt text, timeToAnswer, defaultOption, optionA, optionB) ->
-
     public void GivePrompt(string optionA, string optionB, float secondsToAnswer = 6f, char defaultOption = 'a')
     {
         _hasUserAnswered = false;
         optionAText.text = optionA;
         optionBText.text = optionB;
         UserPromptObject.SetActive(true);
+        Debug.Log("GivePrompt() completed.");
     }
 
     public bool IsPromptAnswered()

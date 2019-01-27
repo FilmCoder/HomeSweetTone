@@ -19,9 +19,13 @@ public class CharacterDialogueBubble : MonoBehaviour
     // entire speech bubble / dialogueBox object, for toggling visible and invisible
     public GameObject speechBubble;
 
+    // gameobject that the speech bubble should follow around
+    private GameObject anchor;
+
     private void Start()
     {
         nameText.text = specifiedName;
+        anchor = gameObject;
     }
 
     // say some text
@@ -34,7 +38,6 @@ public class CharacterDialogueBubble : MonoBehaviour
     // shows the speech bubble
     public void Show()
     {
-        //speechBubble.gameObject.GetComponent<Renderer>().enabled = true;
         speechBubble.SetActive(true);
     }
 
@@ -42,7 +45,6 @@ public class CharacterDialogueBubble : MonoBehaviour
     public void Hide()
     {
         speechBubble.SetActive(false);
-        //speechBubble.gameObject.GetComponent<Renderer>().enabled = false;
     }
 
     private IEnumerator TypeSentence(string sentence)
