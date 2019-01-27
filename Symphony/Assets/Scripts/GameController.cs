@@ -13,16 +13,21 @@ public class GameController : MonoBehaviour
     public GameObject choicePanel2;
     public GameObject selectorPanel1;
     public GameObject selectorPanel2;
+    public GameObject animatorObject;
+
     private Text[] dialogueTexts = new Text[5];
     private Text choiceText1;
     private Text choiceText2;
+    private CharacterAnimationManager animationManager;
 
     public AudioSource[] audioSources;
     private const float typingDelay = 0.02f;
     private const float choiceDisplayDuration = 3f;
-    private const float LEAVE_THRESHOLD = -2;
+    private const float LEAVE_THRESHOLD = -1;
     private const float AUDIO_FADE_INTERVAL = 0.02f;
     private const float AUDIO_FADE_TIME = 1f;
+    ///<summary>Time between when a character is dismissed and when it actually animates away.</summary>
+    private const float CHARACTER_LEAVE_DELAY = 4f;
 
     ///<summary>
     /// Keeps track of which characters are on stage.
@@ -40,17 +45,19 @@ public class GameController : MonoBehaviour
 	public static readonly float[] sectionDelays = new float[] {
 		0f,
 		16f,
-		35f,
-		51f,
-		68f
+		35.5f,
+		51.4f,
+		67f,
+        83.3f,
+        99.4f,
+        115.3f,
+        133.3f,
+        155f,
+        175f
 	};
 
 	public enum SECTION {
-		A,
-		B,
-		C,
-		D,
-		E
+		A, B, C, D, E, F, G, H, I, J
 	}
 
     public enum CHARACTER {
@@ -72,10 +79,15 @@ public class GameController : MonoBehaviour
         choiceText1 = choicePanel1.GetComponent<Text>();
         choiceText2 = choicePanel2.GetComponent<Text>();
 
+        // Turn off all dialogue boxes and the prompt box.
         foreach (GameObject panel in dialogueBoxes) {
             panel.SetActive(false);
         }
+        promptBox.SetActive(false);
+
         conversationSections = DialogueLoader.conversationsBySection();
+
+        animationManager = animatorObject.GetComponent<CharacterAnimationManager>();
 
         launchFirstValidConversation(conversationSections[(int)currentDialogueSection]);
     }
@@ -85,6 +97,7 @@ public class GameController : MonoBehaviour
         SECTION nextSection = currentDialogueSection + 1;
         if (sectionDelays.Length > (int)nextSection && Time.time > sectionDelays[(int)nextSection]) {
             currentDialogueSection = nextSection;
+            enterCharacter();
             launchFirstValidConversation(conversationSections[(int)currentDialogueSection]);
         }
 
@@ -103,26 +116,65 @@ public class GameController : MonoBehaviour
         }
     }
 
+    ///<summary>
+    /// Determines whether any characters should enter based on timing (section).
+    ///</summary>
+    private void enterCharacter() {
+        switch (currentDialogueSection) {
+            case SECTION.C:
+                animationManager.Enter(CHARACTER.GIRL);
+                presentCharacters[(int)CHARACTER.GIRL] = true;
+                break;
+            case SECTION.E:
+                animationManager.Enter(CHARACTER.CAT);
+                presentCharacters[(int)CHARACTER.CAT] = true;
+                break;
+            case SECTION.G:
+                animationManager.Enter(CHARACTER.LADY);
+                presentCharacters[(int)CHARACTER.LADY] = true;
+                break;
+        }
+    }
+
+    ///<summary>
+    /// Handles the dismissal of a character by fading out their audio and animating them.
+    ///</summary>
     private void dismissCharacter(CHARACTER character) {
+        print($"Dismissing character {character}");
         if (!presentCharacters[(int)character]) {
             // This character isn't even here! Do nothing
             return;
         }
         presentCharacters[(int)character] = false;
         StartCoroutine(fadeAudioOut(character));
-        // TODO Play animation.
+        StartCoroutine(removeCharacter(character));
     }
 
+    ///<summary>
+    /// Animates the removal of a character after a delay.
+    ///</summary>
+    private IEnumerator removeCharacter(CHARACTER character) {
+        yield return new WaitForSeconds(CHARACTER_LEAVE_DELAY);
+        animationManager.Leave(character);
+    }
+
+    ///<summary>
+    /// Lerps the volume of a character from 1 to 0.
+    ///</summary>
     private IEnumerator fadeAudioOut(CHARACTER character) {
+        // Wait until the character is physically leaving.
+        yield return new WaitForSeconds(CHARACTER_LEAVE_DELAY);
+        // Lerp the volume.
         for (float time = 0f; time < AUDIO_FADE_TIME; time += Time.deltaTime) {
             audioSources[(int)character].volume = (AUDIO_FADE_TIME - time) / AUDIO_FADE_TIME;
             yield return new WaitForSeconds(AUDIO_FADE_INTERVAL);
-
         }
+        // Ensure that the character is muted after lerp.
         audioSources[(int)character].volume = 0f;
     }
 
     ///<summary>
+    /// Looks through a given section to start the first conversation whose participants are all present.
     ///</summary>
     private void launchFirstValidConversation(List<List<ConversationLine>> conversationList) {
         foreach (List<ConversationLine> conversation in conversationList) {
@@ -172,6 +224,7 @@ public class GameController : MonoBehaviour
             StartCoroutine(launchLine(isUpSelected ? line.response1 : line.response2));
             StartCoroutine(typeSentence(dialogueTexts[(int)line.character], isUpSelected ? line.text : line.text2));
             attitudes[(int)line.affectedCharacter] += isUpSelected ? 0 : -1;
+            print($"Attitude of {line.affectedCharacter} = {attitudes[(int)line.affectedCharacter]}");
             if (attitudes[(int)line.affectedCharacter] <= LEAVE_THRESHOLD) {
                 dismissCharacter(line.affectedCharacter);
             }

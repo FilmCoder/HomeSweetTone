@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameController;
+
 
 public class CharacterAnimationManager : MonoBehaviour
 {
@@ -8,15 +10,6 @@ public class CharacterAnimationManager : MonoBehaviour
     public Animator catAnimator;
     public Animator ladyAnimator;
     public Animator manAnimator;
-
-    public enum CHARACTER
-    {
-        GIRL = 0,
-        CAT = 1,
-        LADY = 2,
-        MAN = 3,
-        PLAYER = 5
-    }
 
     private Animator GetAnimator(CHARACTER character)
     {
@@ -50,7 +43,8 @@ public class CharacterAnimationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DoStuff());
+        // For testing purposes only.
+        //StartCoroutine(DoStuff());
     }
 
 
