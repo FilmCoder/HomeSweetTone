@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - UserPrompt
+  - DialogueCanvas
   layers:
   - Default
   - TransparentFX
