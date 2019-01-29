@@ -360,6 +360,9 @@ public class GameController : MonoBehaviour
 
     public IEnumerator ShowThankYou()
     {
+        // we like to keep thankyou object deactivated in editor because it blocks view of everything,
+        // so activate it now before fade in
+        thankYou.gameObject.SetActive(true);
         thankYou.SetBool("FadeIn", true);
         yield return new WaitForSeconds(4);
         anyKeyForMainMenu.SetActive(true);
