@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         SECTION nextSection = currentDialogueSection + 1;
-        if (sectionDelays.Length > (int)nextSection && Time.time > sectionDelays[(int)nextSection]) {
+        if (sectionDelays.Length > (int)nextSection && Time.timeSinceLevelLoad > sectionDelays[(int)nextSection]) {
             currentDialogueSection = nextSection;
             enterCharacter();
             if (currentDialogueSection == SECTION.I) {
