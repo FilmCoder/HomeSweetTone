@@ -23,6 +23,15 @@ public class GameController : MonoBehaviour
     private CharacterAnimationManager animationManager;
 
     public AudioSource[] audioSources;
+
+    // links to sound clips
+    [System.Serializable]
+    public class SoundFXAudioSources
+    {
+        public AudioSource promptSelect;
+    }
+    public SoundFXAudioSources soundFX;
+ 
     private const float typingDelay = 0.02f;
     private const float CHOICE_DISPLAY_DURATION = 3.5f;
     private const float LEAVE_THRESHOLD = -1;
@@ -121,15 +130,32 @@ public class GameController : MonoBehaviour
             // If the player is not making a choice right now, there's no need to bother with input handling.
             return;
         }
-        if (isUpSelected && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))) {
-            isUpSelected = false;
-            selectorPanel1.SetActive(false);
-            selectorPanel2.SetActive(true);
-        } else if (!isUpSelected && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))) {
-            isUpSelected = true;
-            selectorPanel1.SetActive(true);
-            selectorPanel2.SetActive(false);
+
+        // only allow user to toggle options if selection has yet to be made
+        if (promptBox.activeSelf)
+        {
+            // makes selection if user pressed enter or space
+            if (Input.GetKeyDown("return")  || Input.GetKeyDown("enter") || Input.GetKeyDown("space"))
+            {
+                promptBox.SetActive(false);
+                soundFX.promptSelect.Play();
+            }
+
+            // toggles options between choice 1 and choice 2 via up and down arrow keys
+            if (isUpSelected && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)))
+            {
+                isUpSelected = false;
+                selectorPanel1.SetActive(false);
+                selectorPanel2.SetActive(true);
+            }
+            else if (!isUpSelected && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
+            {
+                isUpSelected = true;
+                selectorPanel1.SetActive(true);
+                selectorPanel2.SetActive(false);
+            }
         }
+
     }
 
     ///<summary>
