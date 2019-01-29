@@ -112,36 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &75017180
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 75017181}
-  m_Layer: 0
-  m_Name: bubble ancor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &75017181
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75017180}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.46, y: 11.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1056078348}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &133595703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,7 +1827,6 @@ GameObject:
   - component: {fileID: 1056078348}
   - component: {fileID: 1056078349}
   - component: {fileID: 1056078350}
-  - component: {fileID: 1056078351}
   m_Layer: 0
   m_Name: lady_sit
   m_TagString: Untagged
@@ -1875,8 +1844,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16.35, y: 0.55, z: 10.734}
   m_LocalScale: {x: 0.31865618, y: 0.31865618, z: 0.31865618}
-  m_Children:
-  - {fileID: 75017181}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1947,23 +1915,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1056078351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056078347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243d94c5449b40945b9bb947707ddc3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specifiedName: 
-  nameText: {fileID: 0}
-  dialogueText: {fileID: 0}
-  speechBubble: {fileID: 1833955615}
-  anchor: {fileID: 75017180}
 --- !u!1 &1084057911
 GameObject:
   m_ObjectHideFlags: 0
@@ -3356,6 +3307,31 @@ PrefabInstance:
     - target: {fileID: 1226329180463366698, guid: e42d4a97b68f6c046ac9309bc09ff96a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226329179097496571, guid: e42d4a97b68f6c046ac9309bc09ff96a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b611083f4cc18a418ce553c62c221e6, type: 3}
+    - target: {fileID: 1226329179097496571, guid: e42d4a97b68f6c046ac9309bc09ff96a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226329180007624620, guid: e42d4a97b68f6c046ac9309bc09ff96a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ea16cf26566d14242aac01d3fe9cbb10, type: 3}
+    - target: {fileID: 1226329180007624620, guid: e42d4a97b68f6c046ac9309bc09ff96a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226329179844876652, guid: e42d4a97b68f6c046ac9309bc09ff96a,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

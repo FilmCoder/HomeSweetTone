@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
     private const float AUDIO_FADE_TIME = 1f;
     ///<summary>Time between when a character is dismissed and when it actually animates away.</summary>
     private const float CHARACTER_LEAVE_DELAY = 4f;
+    private const float CHARACTER_ENTER_DELAY = 0.2f;
 
     ///<summary>
     /// Keeps track of which characters are on stage.
@@ -138,14 +139,17 @@ public class GameController : MonoBehaviour
         switch (currentDialogueSection) {
             case SECTION.C:
                 animationManager.Enter(CHARACTER.GIRL);
+                StartCoroutine(fadeAudioIn(CHARACTER.GIRL));
                 presentCharacters[(int)CHARACTER.GIRL] = true;
                 break;
             case SECTION.E:
                 animationManager.Enter(CHARACTER.CAT);
+                StartCoroutine(fadeAudioIn(CHARACTER.CAT));
                 presentCharacters[(int)CHARACTER.CAT] = true;
                 break;
             case SECTION.G:
                 animationManager.Enter(CHARACTER.LADY);
+                StartCoroutine(fadeAudioIn(CHARACTER.LADY));
                 presentCharacters[(int)CHARACTER.LADY] = true;
                 break;
         }
@@ -176,16 +180,44 @@ public class GameController : MonoBehaviour
     ///<summary>
     /// Lerps the volume of a character from 1 to 0.
     ///</summary>
-    private IEnumerator fadeAudioOut(CHARACTER character) {
-        // Wait until the character is physically leaving.
+    private IEnumerator fadeAudioOut(CHARACTER character)
+    {
         yield return new WaitForSeconds(CHARACTER_LEAVE_DELAY);
+        StartCoroutine(lerpAudio(character, 0, leaveDelay:true));
+    }
+
+    ///<summary>
+    /// Lerps the volume of a character from 1 to 0.
+    ///</summary>
+    private IEnumerator fadeAudioIn(CHARACTER character)
+    {
+        yield return new WaitForSeconds(CHARACTER_ENTER_DELAY);
+        StartCoroutine(lerpAudio(character, 1));
+    }
+
+    /// <summary>
+    /// Lerps character audio from current volume to targetVolume over AUDIO_FADE_TIME seconds
+    /// </summary>
+    /// <param name="character">Specified character.</param>
+    /// <param name="targetVolume">Volume between 0 and 1 to go to.</param>
+    private IEnumerator lerpAudio(CHARACTER character, float targetVolume, bool leaveDelay=false)
+    {
+        AudioSource audioSource = audioSources[(int)character];
+        float startVolume = audioSources[(int)character].volume;
+        float volumeDifferential = targetVolume - startVolume;
+        float fractionLerped = 0; // goes from 0 to 1 over time
+
         // Lerp the volume.
-        for (float time = 0f; time < AUDIO_FADE_TIME; time += Time.deltaTime) {
-            audioSources[(int)character].volume = (AUDIO_FADE_TIME - time) / AUDIO_FADE_TIME;
+        for (float time = 0f; time < AUDIO_FADE_TIME; time += Time.deltaTime)
+        {
+            fractionLerped = time / AUDIO_FADE_TIME;
+            audioSource.volume = fractionLerped * volumeDifferential + startVolume;
             yield return new WaitForSeconds(AUDIO_FADE_INTERVAL);
         }
-        // Ensure that the character is muted after lerp.
-        audioSources[(int)character].volume = 0f;
+
+        // Ensure that the character has reached target volume after lerp.
+        audioSource.volume = targetVolume;
+        Debug.Log("Audio set to 1");
     }
 
     ///<summary>
