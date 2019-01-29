@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CreditManager : MonoBehaviour
+public class AnyKeyToMainMenu : MonoBehaviour
 {
     // Update is called once per frame
     void Update() {

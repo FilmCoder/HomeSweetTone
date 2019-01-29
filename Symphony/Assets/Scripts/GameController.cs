@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameController : MonoBehaviour
     public GameObject animatorObject;
     public Animator curtain;
     public Animator thankYou;
+    public GameObject anyKeyForMainMenu;
 
     private Text[] dialogueTexts = new Text[5];
     private Text choiceText1;
@@ -85,6 +87,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(ShowThankYou());
         // We fetch all Text components now so that we don't have to keep fetching them later.
         foreach (CHARACTER character in Enum.GetValues(typeof(CHARACTER))) {
             dialogueTexts[(int)character] = dialoguePanels[(int)character].GetComponent<Text>();
@@ -97,6 +100,8 @@ public class GameController : MonoBehaviour
             panel.SetActive(false);
         }
         promptBox.SetActive(false);
+
+        anyKeyForMainMenu.SetActive(false); // only show this after "Thank for Playing" fades in
 
         conversationSections = DialogueLoader.conversationsBySection();
 
@@ -120,7 +125,7 @@ public class GameController : MonoBehaviour
             } else if (currentDialogueSection == SECTION.J) {
                 CloseCurtain();
             } else if (currentDialogueSection == SECTION.K) {
-                ShowThankYou();
+                StartCoroutine(ShowThankYou());
             } else if (conversationSections.Length > (int)currentDialogueSection) {
                 launchFirstValidConversation(conversationSections[(int)currentDialogueSection]);
             }
@@ -353,9 +358,17 @@ public class GameController : MonoBehaviour
         curtain.SetBool("IsCurtainFalling", true);
     }
 
-    public void ShowThankYou()
+    public IEnumerator ShowThankYou()
     {
         thankYou.SetBool("FadeIn", true);
+        yield return new WaitForSeconds(4);
+        anyKeyForMainMenu.SetActive(true);
+
+        while(!Input.anyKey)
+        {
+            yield return null;
+        }
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void ShowPressAnyButton()
