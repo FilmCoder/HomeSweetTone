@@ -182,6 +182,13 @@ public class GameController : MonoBehaviour
                 StartCoroutine(fadeAudioIn(CHARACTER.LADY));
                 presentCharacters[(int)CHARACTER.LADY] = true;
                 break;
+            case SECTION.F:
+                // cat bounces 9 seconds in to section F when he meows loudly, if he and girl are present
+                if(presentCharacters[(int)CHARACTER.CAT] && presentCharacters[(int)CHARACTER.GIRL])
+                {
+                    animationManager.BounceCat();
+                }
+                break;
         }
     }
 

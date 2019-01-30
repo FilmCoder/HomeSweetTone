@@ -229,25 +229,41 @@ public class DialogueLoader
 					character = CHARACTER.CAT,
 					delay = 5f,
 					duration = 2f,
-					text = "Meow."
+					text = "MREOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW!!!!!."
 				},
 				new ConversationLine {
 					character = CHARACTER.GIRL,
 					delay = 7f,
 					duration = 3f,
-					text = "Ahhh. Interesting. Why do you feel that way?"
+					text = "Oh HUH? What?!"
 				},
                 new ConversationLine {
                     character = CHARACTER.CAT,
                     delay = 9f,
+                    duration = 1f,
+                    hideOnExpire = false,
+                    text = "mReEeOOoOWWw!!!!!!"
+                },
+               new ConversationLine {
+                    character = CHARACTER.CAT,
+                    delay = 10f,
                     duration = 3f,
-                    text = "MREEEOOOOW!!!!!!"
+                    keepPreviousText = true,
+                    hideOnExpire = false,
+                    text = "  MEOW."
+                },
+               new ConversationLine {
+                    character = CHARACTER.CAT,
+                    delay = 11f,
+                    duration = 2f,
+                    keepPreviousText = true,
+                    text = "  MEOW. meow. meow. meow. meow. meow. meow. meow. MEOW!"
                 },
                 new ConversationLine {
                     character = CHARACTER.GIRL,
-                    delay = 11f,
-                    duration = 6f,
-                    text = "Oh GEEZ sorry! Didn't realize it was such a personal matter for you."
+                    delay = 12f,
+                    duration = 5f,
+                    text = "Shhhhhhhh kitty people people are studyingggg"
                 },
             },
 			new List<ConversationLine> {
