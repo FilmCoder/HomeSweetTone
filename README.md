@@ -1,6 +1,7 @@
 # Home Sweet Tone
 
-[Play the Game on itch.io](https://officialgamecompany.itch.io/home-sweet-tone)
+<a href="https://officialgamecompany.itch.io/home-sweet-tone" target="_blank">Play the Game on itch.io</a>
+
 
 A short game about studying in the library that turns into a musical adventure.
 
