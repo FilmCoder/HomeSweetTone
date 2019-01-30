@@ -64,13 +64,13 @@ public class DialogueLoader
 			new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.GIRL,
-					delay = 1f,
+					delay = 3f,
 					duration = 5f,
 					text = "Hey there! Mind if I join you?"
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 3f,
+					delay = 4f,
 					duration = 8f,
 					isChoice = true,
 					text = "Sure thing! Thanks for stopping by.",
@@ -221,35 +221,35 @@ public class DialogueLoader
 				},
 				new ConversationLine {
 					character = CHARACTER.GIRL,
-					delay = 6f,
-					hideOnExpire = false,
-					text = "Oh look, he has a name tag!"
-				},
-				new ConversationLine {
-					character = CHARACTER.GIRL,
-					delay = 10f,
-					duration = 4f,
-					text = "Mister IO... Cute name, right?"
-				},
-				new ConversationLine {
-					character = CHARACTER.CAT,
 					delay = 3f,
-					duration = 2f,
-					text = "Meow."
+					hideOnExpire = false,
+					text = "How ya doing Mr. Kitty?"
 				},
 				new ConversationLine {
 					character = CHARACTER.CAT,
 					delay = 5f,
-					duration = 4f,
-					text = "Meow meow meow."
+					duration = 2f,
+					text = "Meow."
 				},
 				new ConversationLine {
-					character = CHARACTER.PLAYER,
-					delay = 13f,
+					character = CHARACTER.GIRL,
+					delay = 7f,
 					duration = 3f,
-					text = "...Hm?"
-				}
-			},
+					text = "Ahhh. Interesting. Why do you feel that way?"
+				},
+                new ConversationLine {
+                    character = CHARACTER.CAT,
+                    delay = 9f,
+                    duration = 3f,
+                    text = "MREEEOOOOW!!!!!!"
+                },
+                new ConversationLine {
+                    character = CHARACTER.GIRL,
+                    delay = 11f,
+                    duration = 6f,
+                    text = "Oh GEEZ sorry! Didn't realize it was such a personal matter for you."
+                },
+            },
 			new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.CAT,
@@ -354,32 +354,32 @@ public class DialogueLoader
 			new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.LADY,
-					delay = 1f,
+					delay = 4.5f,
 					duration = 2.5f,
 					text = "Hey."
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 3.5f,
+					delay = 5.5f,
 					duration = 2.5f,
 					text = "Hey sis."
 				},
 				new ConversationLine {
 					character = CHARACTER.LADY,
-					delay = 6f,
-					duration = 4.5f,
+					delay = 7.5f,
+					duration = 4f,
 					text = "Have you talked to Mom yet?"
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 10f,
+					delay = 9f,
 					duration = 2.5f,
 					text = "Not yet."
 				},
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
 					isChoice = true,
-					delay = 10f,
+					delay = 11f,
 					duration = 8f,
 					text = "Do you want to hang out for a while?",
 					text2 = "Listen, can we do this later?",

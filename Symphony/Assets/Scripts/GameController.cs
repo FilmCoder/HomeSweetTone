@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
 		16f, // B
 		35.5f, // C
 		51.4f, // D
-		67f, // E
+		67f, // E (kitty enters)
         83.3f, // F
         99.4f, // G
         //115.3f, // H
@@ -87,7 +87,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(ShowThankYou());
         // We fetch all Text components now so that we don't have to keep fetching them later.
         foreach (CHARACTER character in Enum.GetValues(typeof(CHARACTER))) {
             dialogueTexts[(int)character] = dialoguePanels[(int)character].GetComponent<Text>();
