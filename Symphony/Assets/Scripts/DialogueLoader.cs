@@ -78,13 +78,13 @@ public class DialogueLoader
 					response1 = new ConversationLine {
 						character = CHARACTER.GIRL,
 						delay = 3f,
-						duration = 4f,
+						duration = 3f,
 						text = "Great! Still working on your game?"
 					},
 					response2 = new ConversationLine {
 						character = CHARACTER.GIRL,
 						delay = 3f,
-						duration = 4f,
+						duration = 3f,
 						text = "Oh, ok... Well, see you around!"
 					}
 				},
@@ -163,13 +163,13 @@ public class DialogueLoader
 					response1 = new ConversationLine {
 						character = CHARACTER.CAT,
 						delay = 3f,
-						duration = 3f,
+						duration = 2f,
 						text = "Meow. :3"
 					},
 					response2 = new ConversationLine {
 						character = CHARACTER.CAT,
 						delay = 3f,
-						duration = 3f,
+						duration = 2f,
 						text = "Meow... :("
 					},
 					affectedCharacter = CHARACTER.CAT
@@ -385,14 +385,14 @@ public class DialogueLoader
 					text2 = "Listen, can we do this later?",
 					response1 = new ConversationLine {
 						character = CHARACTER.LADY,
-						delay = 3f,
+						delay = 1f,
 						duration = 3f,
 						text = "Sure thing."
 					},
 					response2 = new ConversationLine {
 						character = CHARACTER.LADY,
 						delay = 3f,
-						duration = 4f,
+						duration = 2.5f,
 						text = "Ok. I'll head back then..."
 					},
 					affectedCharacter = CHARACTER.LADY
@@ -503,7 +503,7 @@ public class DialogueLoader
 			new List<ConversationLine> {
 				new ConversationLine {
 					character = CHARACTER.PLAYER,
-					delay = 1f,
+					delay = 2f,
 					hideOnExpire = false,
 					text = "Phew... "
 				},

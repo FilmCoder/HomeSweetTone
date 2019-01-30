@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
     private const float AUDIO_FADE_INTERVAL = 0.02f;
     private const float AUDIO_FADE_TIME = 1f;
     ///<summary>Time between when a character is dismissed and when it actually animates away.</summary>
-    private const float CHARACTER_LEAVE_DELAY = 4f;
+    private const float CHARACTER_LEAVE_DELAY = 7f;
     private const float CHARACTER_ENTER_DELAY = 0.2f;
 
     ///<summary>
@@ -189,7 +189,6 @@ public class GameController : MonoBehaviour
     /// Handles the dismissal of a character by fading out their audio and animating them.
     ///</summary>
     private void dismissCharacter(CHARACTER character) {
-        print($"Dismissing character {character}");
         if (!presentCharacters[(int)character]) {
             // This character isn't even here! Do nothing
             return;
@@ -203,7 +202,9 @@ public class GameController : MonoBehaviour
     /// Animates the removal of a character after a delay.
     ///</summary>
     private IEnumerator removeCharacter(CHARACTER character) {
+        print($"Removing character {character}.");
         yield return new WaitForSeconds(CHARACTER_LEAVE_DELAY);
+        print($"Triggering leave animation for {character}.");
         animationManager.Leave(character);
     }
 
